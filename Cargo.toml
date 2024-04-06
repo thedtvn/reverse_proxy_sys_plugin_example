@@ -1,0 +1,12 @@
+[package]
+name = "reverse_proxy_sys_plugin_example"
+version = "0.0.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+hyper = { version = "0", features = ["full"] }
+
+[lib]
+crate-type = ["dylib"]
