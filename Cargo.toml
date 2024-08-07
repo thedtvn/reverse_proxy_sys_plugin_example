@@ -6,7 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-hyper = { version = "0", features = ["full"] }
+reverse_proxy_sys = { git = "https://github.com/thedtvn/reverse_proxy_sys.git"}
+http = "0"
 
 [lib]
 crate-type = ["dylib"]
