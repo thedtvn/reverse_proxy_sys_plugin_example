@@ -1,6 +1,23 @@
 use http::{HeaderValue, StatusCode};
 use reverse_proxy_sys::{RequestPlugin, ResponsePlugin};
 
+
+// DO NOT UNWARP OR PANIC IN PLUGIN OR IT WILL CRASH THE PROGRAM
+// SO HANDLE ERRORS PROPERLY
+// EXAMPLE: 
+// BAD WAY: 
+// ```rs
+// let _ = test_err().unwrap();
+// ```
+// GOOD WAY: 
+// ```rs
+// let test = test_err();
+// if test.is_err() {
+//    return
+// }
+// let _ = test.unwrap();
+// ```
+
 #[no_mangle]
 pub fn on_request(request: &mut RequestPlugin) {
     // edit request headers

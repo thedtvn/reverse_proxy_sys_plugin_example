@@ -16,4 +16,22 @@ so: linux
 
 dylib: macos
 
+## IMPORTANT
+
+DO NOT UNWARP OR PANIC IN PLUGIN OR IT WILL CRASH THE PROGRAM
+SO HANDLE ERRORS PROPERLY
+EXAMPLE: 
+BAD WAY: 
+```rs
+let _ = test_err().unwrap();
+```
+GOOD WAY: 
+```rs
+let test = test_err();
+if test.is_err() {
+   return
+}
+let _ = test.unwrap();
+```
+
 #### Project by [thedtvn](https://github.com/thedtvn)
