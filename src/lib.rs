@@ -1,7 +1,6 @@
 use http::{HeaderValue, StatusCode};
 use reverse_proxy_sys::{RequestPlugin, ResponsePlugin};
 
-
 // DO NOT UNWARP OR PANIC IN PLUGIN OR IT WILL CRASH THE PROGRAM
 // SO HANDLE ERRORS PROPERLY
 // EXAMPLE: 
@@ -17,6 +16,12 @@ use reverse_proxy_sys::{RequestPlugin, ResponsePlugin};
 // }
 // let _ = test.unwrap();
 // ```
+
+#[no_mangle]
+pub fn on_init() {
+    // add your init code here
+}
+
 
 #[no_mangle]
 pub fn on_request(request: &mut RequestPlugin) {
